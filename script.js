@@ -27,7 +27,6 @@
 let num = prompt('2 + 2')
 
 switch(num){
-
 	case '1':
 		console.log('false')
 		break
