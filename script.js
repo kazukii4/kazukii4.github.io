@@ -1,46 +1,40 @@
-// let imie = prompt('Write your name ')
+var sumsOfQestions = [] // пустой список для подсчета сумм
 
-// let q1 = prompt(imie + ',' + ' First question: Where are you from? 1-Asia, 2-Europe, 3-America')
-// if (q1 == 1){
-// 	alert('True')
-	
-// 	let q2 = prompt(imie + ',' + ' Second question: Which language do you learn? 1-PY, 2-Kotlin, 3-JS')
-// 	if(q2 == 3){
-// 		alert("True")
+var questions = ["столица Кыргызстана? ", "Кто изображен на 100$? ", "сколько пальцев на руке? ", "Столица Грузии? ", "Столица России? "]
+var answers = ["Шанхай, Душанбе, Баткен, Бишкек", "Адам, Бенжамин, супермен, Сооронбай", "5, 10, 250, 1", "Шанхай, Тбилиси, Баткен, Бишкек", "Шанхай, Тбилиси, Москва, Бишкек"]
+var quesAns = ["Бишкек", "Бенжамин", 5, "Тбилиси", "Москва"]
 
-// 		let q3 = prompt('What mean name Hamid: 1-Dog, 2-Ham it, 3-Pork dog')
-// 		if (q3 == 3){
-// 			alert('You are win!!!')
-// 		}
-// 		else{
-// 			alert('кет')
-// 		}
-// 	}
-// 	else{
-// 		alert('кет')
-// 	}
-// }
-// else{
-// 	alert('кет')
-// }
+var sumsOfQestions = []    // пустой список для подсчета сумм
 
-let num = prompt('2 + 2')
+for (var a = 1; a < questions.length+1; a++){
+   sumsOfQestions.push(500*a)
+}    // цикл считающий суммы 
 
-switch(num){
-	case '1':
-		console.log('false')
-		break
-	case '2':
-		console.log('false')
-		break
-	case '3':
-		console.log('false')
-		break
-	case '4':
-		console.log('true')
-		break
-		
-		default:
-		console.log('nothing')
-					
+var name = prompt("Введите ваше имя")
+
+var sum = prompt("Введите несгораемую сумму "+ sumsOfQestions)
+
+var count, allSum, i , otvet      // перечисление переменных 
+count=0         //количество правельных ответов
+allSum=0     //общая сумма выйигрыша
+
+for(i=0; i < questions.length; i++){  //цикл переберающий вопросы
+   otvet = prompt("уважаемый " + name + " ответьте на следующий вопрос "+ questions[i] + answers[i])
+   if(otvet == quesAns[i]){
+        alert("Cool")
+        count++
+        allSum = allSum+500
+    }else{
+        alert("Извините но вы проиграли")
+        alert("вы ответили на "+ count +" вопроса из "+ questions.length)
+        if(allSum >= sum) {  //проверка на то что наша несгороемая сумма соответсвует выйигрышу
+            alert("ваш выйигрыш = " + sum)
+        }else{
+            alert("ваш выйигрыш = 0")
+        }
+        break
+ 
+      }
+
 }
+alert("Поздравляю "+name+"Вы выйграли максимальную сумму денег в размере "+ allSum)
